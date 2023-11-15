@@ -17,3 +17,14 @@ export const App = () => {
     </div>
   );
 };  
+
+/*export const App = () => {
+  return (
+    <>
+      <AppBar />
+      <Navigation />
+      <AuthNav />
+      <UserMenu />
+    </>
+  );
+};*/
