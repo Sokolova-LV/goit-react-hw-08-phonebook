@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-// Добавление token
+// Добавление токена
 
 const token = {
     get(token) {
@@ -16,36 +16,39 @@ const token = {
 
 // Регистрация пользователя
 
-export const register = createAsyncThunk('auth/register', async credentials => {
+export const register = createAsyncThunk('auth/register',
+    async (credentials, thunkAPI) => {
     try {
         const { data } = await axios.post('users/signup', credentials);
         token.unset(data.token);
         return data;
     } catch (error) {
-        // обработка ошибки
+        return thunkAPI.rejectWithValue(error.message);
     }
 });
 
 // Логика входа
 
-export const logIn = createAsyncThunk('auth/login', async credentials => {
+export const logIn = createAsyncThunk('auth/login',
+    async (credentials, thunkAPI) => {
     try {
         const { data } = await axios.post('users/login', credentials);
         token.unset(data.token);
         return data;
     } catch (error) {
-        // обработка ошибки
+        return thunkAPI.rejectWithValue(error.message);
     }
 });
 
 // Логика выхода
 
-export const logOut = createAsyncThunk('auth/logout', async () => {
+export const logOut = createAsyncThunk('auth/logout',
+    async (_, thunkAPI) => {
     try {
         await axios.post('/users/logout');
         token.unset();
     } catch (error) {
-        // обработка ошибки
+        return thunkAPI.rejectWithValue(error.message);
     }
 });
 
@@ -60,12 +63,12 @@ export const fetchCurrentUser = createAsyncThunk(
         if (persistedToken === null) {
             return thunkAPI.rejectWithValue();
         }
-        token.get(persistedToken);
         try {
+            token.get(persistedToken);
             const { data } = await axios.get('/users/current');
             return data;
         } catch (error) {
-            // обработка ошибки
+            return thunkAPI.rejectWithValue(error.message);
         }
     },
 );

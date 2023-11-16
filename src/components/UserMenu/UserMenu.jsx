@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { authSelectors } from "auth/auth-selectors";
+import { getUserEmail } from "auth/auth-selectors";
 import { logOut } from "auth/auth-operations";
 
 export default function UserMenu() {
     const dispatch = useDispatch();
-    const email = useSelector(authSelectors.getUserEmail);
+    const email = useSelector(getUserEmail);
 
     return (
         <div>

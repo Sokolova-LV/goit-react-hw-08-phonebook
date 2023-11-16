@@ -24,10 +24,10 @@ export const ContactList = () => {
             {isLoading && <p>Contacts is loading...</p>}
             {error && <p>{error}</p>}
             <List>
-            {filteredContacts.map(({ id, name, phone }) => (
+            {filteredContacts.map(({ id, name, number }) => (
                 <Item key={id}>
                     <ItemName>
-                        {name}<ItemNumber>{phone}</ItemNumber>
+                        {name}<ItemNumber>{number}</ItemNumber>
                     </ItemName>
                     <Btn onClick={() => onDeleteContact(id)}>Delete</Btn>
                 </Item>
