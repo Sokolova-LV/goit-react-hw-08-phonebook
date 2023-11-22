@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import { Div, Title, Form, Label, Input, Button } from './ContactForm.styled';
 import { nanoid } from '@reduxjs/toolkit';
 
 export const ContactForm = () => {
@@ -29,7 +29,8 @@ export const ContactForm = () => {
   };
 
   return (
-    <div>
+    <Div>
+      <Title>Phonebook</Title>
       <Form onSubmit={handleSubmit}>
         <Label>Name</Label>
         <Input
@@ -53,6 +54,6 @@ export const ContactForm = () => {
                 
         <Button type="submit">Add contact</Button>
       </Form>
-    </div>
+    </Div>
   );
 };

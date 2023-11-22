@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "auth/auth-operations";
+import { Div, Title, Form, Label, Input, Button } from "./LoginView.styled";
 
 export default function LoginView() {
     const dispatch = useDispatch();
@@ -26,20 +27,20 @@ export default function LoginView() {
     };
 
     return (
-        <div>
-            <h1>Login page</h1>
+        <Div> 
+            <Title>Welcome back!</Title>
 
-            <form onSubmit={handleSubmit}>
-                <label>
+            <Form onSubmit={handleSubmit}>
+                <Label>
                     Email
-                    <input type="email" name="email" value={email} onChange={handleChange} />
-                </label>
-                <label>
+                    <Input type="email" name="email" value={email} onChange={handleChange} />
+                </Label>
+                <Label>
                     Password
-                    <input type="password" name="password" value={password} onChange={handleChange} />
-                </label>
-                <button type="submit">Log In</button>
-            </form>
-        </div>
+                    <Input type="password" name="password" value={password} onChange={handleChange} />
+                </Label>
+                <Button type="submit">Log In</Button>
+            </Form>
+        </Div>
     );
 };

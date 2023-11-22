@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Div = styled.div`
-    max-width: 400px;
+    max-width: 500px;
     margin: 40px auto;
     background-color: #ffffff; 
     padding: 20px;
@@ -30,7 +30,7 @@ export const Input = styled.input`
     border: 1px solid #9b59b6; 
     border-radius: 4px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
 `;
 
 export const Button = styled.button`

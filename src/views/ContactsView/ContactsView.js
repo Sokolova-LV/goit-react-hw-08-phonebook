@@ -16,7 +16,6 @@ const ContactsView = () => {
 
     return (
         <div>
-            <h1>Phonebook</h1>
             <div>{isLoading && 'Request is sent...'}</div>
             <ContactForm />
             <Filter />

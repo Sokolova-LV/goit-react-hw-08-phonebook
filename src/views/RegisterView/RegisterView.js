@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { register } from "auth/auth-operations";
 import { useState } from "react";
+import { Div, Title, Form, Label, Input, Button } from "./RegisterView.styled";
 
 export default function RegisterView() {
     const dispatch = useDispatch();
@@ -31,39 +32,39 @@ export default function RegisterView() {
     };
 
     return (
-        <div>
-            <h1>Registration page</h1>
+        <Div>
+            <Title>Registration page</Title>
 
-            <form onSubmit={handleSubmit} autoComplete="off">
-                <label>
+            <Form onSubmit={handleSubmit} autoComplete="off">
+                <Label>
                     Name
-                    <input
+                    <Input
                         type="text"
                         name="name"
                         value={name}
                         onChange={handleChange}
                     />
-                </label>
-                <label>
+                </Label>
+                <Label>
                     Email
-                    <input
+                    <Input
                         type="email"
                         name="email"
                         value={email}
                         onChange={handleChange}
                     />
-                </label>
-                <label>
+                </Label>
+                <Label>
                     Password
-                    <input
+                    <Input
                         type="password"
                         name="password"
                         value={password}
                         onChange={handleChange}
                     />
-                </label>
-                <button type="submit">Register</button>
-            </form>
-        </div>
+                </Label>
+                <Button type="submit">Register</Button>
+            </Form>
+        </Div>
     );
 };

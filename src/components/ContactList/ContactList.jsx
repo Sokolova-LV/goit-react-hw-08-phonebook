@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts, deleteContact } from 'redux/operations';
 import { getIsLoading, getError, getFilteredContacts } from 'redux/selectors';
-import { List, Item, ItemName, ItemNumber, Btn } from './ContactList.styled';
+import { Div, List, Item, ItemName, ItemNumber, Btn } from './ContactList.styled';
 
 export const ContactList = () => {
     const isLoading = useSelector(getIsLoading);
@@ -20,7 +20,7 @@ export const ContactList = () => {
     };
 
     return (
-        <div>
+        <Div> 
             {isLoading && <p>Contacts is loading...</p>}
             {error && <p>{error}</p>}
             <List>
@@ -33,7 +33,7 @@ export const ContactList = () => {
                 </Item>
             ))}
             </List>
-        </div>
+        </Div>
     )
 };
 

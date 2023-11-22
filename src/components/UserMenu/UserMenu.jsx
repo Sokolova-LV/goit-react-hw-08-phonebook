@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getUserEmail } from "auth/auth-selectors";
+import { getUserName } from "auth/auth-selectors";
 import { logOut } from "auth/auth-operations";
+import { Div, Text, Button } from "./UserMenu.styled";
 
 export default function UserMenu() {
     const dispatch = useDispatch();
-    const email = useSelector(getUserEmail);
+    const name = useSelector(getUserName);
 
     return (
-        <div>
-            <p>{email}</p>
-            <button type="button" onClick={() => dispatch(logOut())}>Log out</button>
-        </div>
+        <Div>
+            <Text>Hi, {name}!</Text>
+            <Button type="button" onClick={() => dispatch(logOut())}>Log out</Button>
+        </Div>
     );
 };

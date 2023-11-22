@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/slice';
 import { getFilter } from 'redux/selectors';
-import { Label, Input } from './Filter.styled';
+import { Div, Label, Input } from './Filter.styled';
 
 export const Filter = () => {
     const filter = useSelector(getFilter);
     const dispatch = useDispatch();
 
     return (
-        <Label>
-            Find contacts by name
+        <Div>
+            <Label>Find contacts by name</Label>
             <Input
                 type="text"
                 name="filter"
@@ -17,6 +17,6 @@ export const Filter = () => {
                 value={filter}
                 onChange={e => dispatch(setFilter(e.target.value.trim()))}>
             </Input>
-        </Label>
+        </Div>
     );
 };
