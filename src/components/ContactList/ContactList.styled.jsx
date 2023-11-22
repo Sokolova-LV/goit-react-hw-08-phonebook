@@ -23,7 +23,7 @@ export const Item = styled.li`
 `;
 
 export const ItemName = styled.p`
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 `;
 
@@ -35,6 +35,7 @@ export const ItemNumber = styled.span`
 export const Btn = styled.button`
     display: block;
     background-color: #000000; 
+    font-size: 20px;
     color: #ffffff; 
     padding: 10px 15px;
     border: none;

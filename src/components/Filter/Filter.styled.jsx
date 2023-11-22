@@ -13,6 +13,7 @@ export const Label = styled.label`
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+    font-size: 20px;
 `;
 
 export const Input = styled.input`

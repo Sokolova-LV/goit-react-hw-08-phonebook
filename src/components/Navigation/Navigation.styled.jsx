@@ -7,11 +7,11 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-    margin-right: 20px;
+    margin-right: 50px;
     text-decoration: none;
     color: #ffffff; 
     font-weight: bold;
-    font-size: 16px;
+    font-size: 35px;
     transition: color 0.3s ease;
 
     :hover {

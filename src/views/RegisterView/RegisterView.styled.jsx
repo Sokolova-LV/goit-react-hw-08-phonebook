@@ -11,6 +11,7 @@ export const Div = styled.div`
 
 export const Title = styled.h1`
     text-align: center;
+    font-size: 36px;
 `;
 
 export const Form = styled.form`
@@ -21,6 +22,7 @@ export const Label = styled.label`
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
+    font-size: 20px;
 `;
 
 export const Input = styled.input`
@@ -36,6 +38,7 @@ export const Input = styled.input`
 export const Button = styled.button`
     display: block;
     margin: 0 auto;
+    font-size: 20px;
     background-color: #9b59b6; 
     color: #ffffff; 
     padding: 10px 15px;
