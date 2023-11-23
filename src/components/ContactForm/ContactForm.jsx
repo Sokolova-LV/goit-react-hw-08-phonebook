@@ -3,6 +3,7 @@ import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 import { Div, Title, Form, Label, Input, Button } from './ContactForm.styled';
 import { nanoid } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
@@ -21,7 +22,7 @@ export const ContactForm = () => {
     );
 
     if (isContact) {
-      return alert(`${contact.name}: is already exists`);
+      return Notiflix.Notify.warning(`${contact.name}: is already exists`);
     }
 
     dispatch(addContact(contact));

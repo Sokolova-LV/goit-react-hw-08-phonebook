@@ -12,5 +12,6 @@ export default function UserMenu() {
             <Text>Hi, {name}!</Text>
             <Button type="button" onClick={() => dispatch(logOut())}>Log out</Button>
         </Div>
+        
     );
 };
