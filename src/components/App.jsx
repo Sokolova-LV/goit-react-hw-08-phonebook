@@ -24,43 +24,6 @@ export default function App() {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  /*return (
-    !isFetchingCurrentUser && (
-      <div>
-          <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route
-              path='/'
-              element={
-                <PublicRoute component={<HomeView />} />
-              }
-            />
-
-            <Route
-              path='/register'
-              element={
-                <PublicRoute component={<RegisterView />} redirectTo="/contacts" />
-              }
-            />
-
-            <Route
-              path='/login'
-              element={
-                <PublicRoute component={<LoginView />} redirectTo="/contacts" />
-              }
-            />
-
-            <Route
-              path='/contacts'
-              element={
-                <PrivateRoute component={<ContactsView />} redirectTo="/login" />
-              }
-            />
-            </Route>
-          </Routes>
-      </div>
-    )
-  );*/
   return isFetchingCurrentUser ? (
     <b>Refreshing user</b>
   ) : (
