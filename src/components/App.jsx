@@ -1,8 +1,8 @@
-import { useEffect, Suspense } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import AppBar from './AppBar/AppBar';
+import Layout from './Layout';
 
 import HomeView from 'views/HomeView/HomeView';
 import RegisterView from 'views/RegisterView/RegisterView';
@@ -24,13 +24,11 @@ export default function App() {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
+  /*return (
     !isFetchingCurrentUser && (
       <div>
-        <AppBar />
-        <Suspense fallback={<p>Loading...</p>}>
           <Routes>
-
+          <Route path='/' element={<Layout />}>
             <Route
               path='/'
               element={
@@ -58,11 +56,39 @@ export default function App() {
                 <PrivateRoute component={<ContactsView />} redirectTo="/login" />
               }
             />
-            
+            </Route>
           </Routes>
-        </Suspense>
       </div>
     )
+  );*/
+  return isFetchingCurrentUser ? (
+    <b>Refreshing user</b>
+  ) : (
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<HomeView />} />
+
+        <Route
+          path='/register'
+          element={
+            <PublicRoute component={<RegisterView />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path='/login'
+          element={
+            <PublicRoute component={<LoginView />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path='/contacts'
+          element={
+            <PrivateRoute component={<ContactsView />} redirectTo="/login" />
+          }
+        />
+        <Route path='*' element={<HomeView />} />
+      </Route>
+    </Routes>
   );
 };
 
